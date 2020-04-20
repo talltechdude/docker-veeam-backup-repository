@@ -1,0 +1,11 @@
+version: "3.2"
+services:
+  veeam:
+    image: talltechdude/veeam-backup-repository
+    build: .
+    volumes:
+      - ./veeam.pub:/root/.ssh/authorized_keys
+      - /mnt/backup:/veeam
+    ports:
+      - "777:22"
+      - "2500-2510:2500-2510"
